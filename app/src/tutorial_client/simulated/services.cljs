@@ -5,6 +5,9 @@
 
 (def counters (atom {"abc" 0 "xyz" 0}))
 
+(defn services-fn [message input-queue]
+  (.log js/console (str "Sending message to server: " message)))
+
 (defn increment-counter [key t input-queue]
   (p/put-message input-queue {msg/type :swap
                               msg/topic [:other-counters key]
@@ -12,8 +15,8 @@
   (platform/create-timeout t #(increment-counter key t input-queue)))
 
 (defn receive-messages [input-queue]
-  (increment-counter "devth" 500 input-queue)
-  (increment-counter "abc" 2000 input-queue)
+  ; (increment-counter "devth" 5300 input-queue)
+  (increment-counter "abc" 8000 input-queue)
   (increment-counter "xyz" 5000 input-queue))
 
 (defrecord MockServices [app]
