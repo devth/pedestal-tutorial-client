@@ -3,4 +3,12 @@
 
 (defmacro tutorial-client-templates
   []
-  {:tutorial-client-page (dtfn (tnodes "tutorial-client.html" "hello") #{:id})})
+  {:tutorial-client-page (dtfn (tnodes "tutorial-client.html" "tutorial" [[:#other-counters]])
+                               #{:id})
+   :other-counter (dtfn (tnodes "tutorial-client.html" "other-counter") #{:id})})
+
+; (def t (tutorial-client-templates))
+; (def tf (:other-counter t))
+; (tf)
+; (let [[_ ctor] (tf)]
+;   (ctor {:id 42}))
