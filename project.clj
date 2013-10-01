@@ -2,6 +2,7 @@
   :description "FIXME: write description"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1835"]
+                 [org.clojure/tools.nrepl "0.2.3"]
                  [domina "1.0.1"]
                  [com.cemerick/piggieback "0.1.0"]
                  [ch.qos.logback/logback-classic "1.0.7" :exclusions [org.slf4j/slf4j-api]]
