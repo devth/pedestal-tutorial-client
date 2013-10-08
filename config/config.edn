@@ -81,15 +81,23 @@
                       ;; The data-ui aspect uses the tooling.html template
                       :template "tooling.html"}
             ;; Useful for viewing rendering output with a simulated start
-            :ui  {:uri  "/tutorial-client-ui.html"
-                  :name  "UI"
-                  :out-file  "tutorial-client-ui.js"
-                  :main tutorial_client.simulated.start
-                  :logging? true
-                  :recording? true
-                  :output-root :tools-public
-                  :template "tooling.html"
-                  :order 3}
+            ; :ui  {:uri  "/tutorial-client-ui.html"
+            ;       :name  "UI"
+            ;       :out-file  "tutorial-client-ui.js"
+            ;       :main tutorial_client.simulated.start
+            ;       :logging? true
+            ;       :recording? true
+            ;       :output-root :tools-public
+            ;       :template "tooling.html"
+            ;       :order 3}
+            :ui {:uri "/tutorial-client-dev-ui.html"
+                 :name "UI"
+                 :order 2
+                 :out-file "tutorial-client-dev-ui.js"
+                 :main tutorial_client.simulated.start
+                 :recording? true
+                 :logging? true
+                 :output-root :tools-public}
             :development {:uri "/tutorial-client-dev.html"
                           :name "Development"
                           :out-file "tutorial-client-dev.js"
