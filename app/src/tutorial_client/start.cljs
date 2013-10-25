@@ -4,6 +4,7 @@
             [io.pedestal.app.render.push :as push-render]
             [io.pedestal.app.render :as render]
             [io.pedestal.app.messages :as msg]
+            [tutorial-client.services :as services]
             [tutorial-client.post-processing :as post]
             [tutorial-client.behavior :as behavior]
             [tutorial-client.rendering :as rendering]))
@@ -16,4 +17,8 @@
     {:app app :app-model app-model}))
 
 (defn ^:export main []
-  (create-app (rendering/render-config)))
+  (let [app (create-app (rendering/render-config))
+        services (services/->Services (:app app))]
+    (app/consume-effects (:app app) services/services-fn)
+    (p/start services)
+    app))
