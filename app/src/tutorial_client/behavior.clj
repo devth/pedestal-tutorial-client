@@ -50,12 +50,10 @@
              [#{[:pedestal :debug :dataflow-time]} [:pedestal :debug :dataflow-time-max] maximum :vals]
              [#{[:pedestal :debug :dataflow-time]} [:pedestal :debug] cumulative-average :map-seq]}
    :emit [{:init init-main}
-          [#{[:my-counter]
-             [:counters]
-             [:other-counters :*]
-             [:total-count]
+          [#{[:total-count]
              [:max-count]
              [:average-count]} (app/default-emitter [:main])]
+          [#{[:counters :*]} (app/default-emitter [:main])]
           [#{[:pedestal :debug :dataflow-time]
              [:pedestal :debug :dataflow-time-max]
              [:pedestal :debug :dataflow-time-avg]} (app/default-emitter [])]]})
